@@ -3,12 +3,18 @@ const express = require("express");
 const ejs = require("ejs");
 const path = require("path");
 const multer = require("multer");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const morgan = require("morgan");
+
 const app = express();
 
 const dotenv = require("dotenv");
 dotenv.config();
 
-app.use(express.json());
+app.use(cors());
+app.use(morgan("dev"));
+app.use(bodyParser.json());
 
 const port = process.env.Port || 4000;
 
